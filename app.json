@@ -4,8 +4,8 @@
     "slug": "cocoa-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/splash.jpg",
+    "scheme": "cocoaapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/splash.jpg",
         "backgroundColor": "#ffffff"
       }
     },
@@ -27,8 +27,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/splash.jpg",
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }

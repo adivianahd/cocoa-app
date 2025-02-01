@@ -7,8 +7,11 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { InstrumentsProvider } from '@/providers/InstrumentsProvider';
+import { PortfolioProvider } from '@/providers/PortfolioProvider';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import ToastManager from "toastify-react-native";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -22,18 +25,23 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
-
   if (!loaded) {
     return null;
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <InstrumentsProvider>
+        <PortfolioProvider>
+          <ThemeProvider value={colorScheme !== 'dark' ? DarkTheme : DefaultTheme}>
+            <ToastManager height={100} showProgressBar={false} duration={4000} />
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            </Stack>
+            <StatusBar style="auto" />
+          </ThemeProvider>
+        </PortfolioProvider>
+      </InstrumentsProvider>
+    </SafeAreaProvider>
   );
 }
