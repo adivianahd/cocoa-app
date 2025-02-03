@@ -1,8 +1,59 @@
-# Welcome to your Expo app 👋
+# Bienvenido a Cocoa 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Esta aplicación fue desarrollada en React Native con [`Expo`](https://www.npmjs.com/package/create-expo-app) y TypeScript. 
+Su objetivo es permitir la visualización y gestión de información de instrumentos financieros y el portafolio de un usuario, interactuando con varios endpoints de una API externa. 
 
-## Get started
+### Endpoints Utilizados
+   - GET https://dummy-api-topaz.vercel.app/portfolio
+   - GET https://dummy-api-topaz.vercel.app/instruments
+   - GET https://dummy-api-topaz.vercel.app/search?query=DYC
+   - POST https://dummy-api-topaz.vercel.app/orders
+
+1. **/Instruments**  
+   - Muestra un listado de instrumentos financieros, donde cada uno muestra:
+     - **Ticker**
+     - **Nombre**
+     - **Último precio**
+     - **Retorno** (calculado usando el último precio y el precio de cierre proporcionado en la respuesta).
+
+2. **/Portfolio**  
+   - Muestra los activos en el portafolio de un usuario:
+     - **Ticker**
+     - **Cantidad de la posición**
+     - **Valor de mercado** (calculado como `cantidad * último precio`)
+     - **Ganancia absoluta ($)**
+     - **Rendimiento total (%)** (utilizando `avg_cost_price` como el precio de compra).
+
+3. **/Search**  
+   - Un buscador que permite buscar activos por su ticker.
+
+4. **/Orders**  
+   - Permite al usuario enviar órdenes de compra o venta a través de un formulario modal:
+     - El tipo de orden puede ser **BUY** o **SELL**.
+     - El tipo de orden puede ser **MARKET** o **LIMIT**.
+     - La cantidad de acciones puede ser ingresada directamente o, si es una orden **LIMIT**, también se puede ingresar un monto total de inversión en pesos (calculando la cantidad de acciones posibles con el último precio).
+     - El estado de la orden puede ser:
+       - **PENDING**: cuando la orden LIMIT es enviada.
+       - **FILLED**: cuando una orden MARKET es ejecutada.
+       - **REJECTED**: cuando la orden no cumple los requisitos del mercado (por ejemplo, un monto mayor al disponible).
+
+---
+
+## Tecnologías
+
+- **React Native**: Framework para crear aplicaciones móviles nativas.
+- **Expo**: Herramienta que permite desarrollar, compilar y ejecutar aplicaciones de React Native.
+- **TypeScript**: Superset de JavaScript que añade tipado estático y facilita el desarrollo con seguridad y mantenimiento del código.
+
+---
+
+## Instalación
+
+Para comenzar a trabajar con esta aplicación en tu entorno local, sigue estos pasos:
+
+1. Clonar repositorio:
+
+   https://github.com/adivianahd/cocoa-app
 
 1. Install dependencies
 
@@ -16,16 +67,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npm run start
    ```
 
-## Learn more
+3. scanear el codigo QR desde la app de Expo.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Preview de la app
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
