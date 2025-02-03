@@ -3,12 +3,6 @@
 Esta aplicación fue desarrollada en React Native con [`Expo`](https://www.npmjs.com/package/create-expo-app) y TypeScript. 
 Su objetivo es permitir la visualización y gestión de información de instrumentos financieros y el portafolio de un usuario, interactuando con varios endpoints de una API externa. 
 
-### Endpoints Utilizados
-   - GET https://dummy-api-topaz.vercel.app/portfolio
-   - GET https://dummy-api-topaz.vercel.app/instruments
-   - GET https://dummy-api-topaz.vercel.app/search?query=DYC
-   - POST https://dummy-api-topaz.vercel.app/orders
-
 1. **/Instruments**  
    - Muestra un listado de instrumentos financieros, donde cada uno muestra:
      - **Ticker**
@@ -36,6 +30,12 @@ Su objetivo es permitir la visualización y gestión de información de instrume
        - **PENDING**: cuando la orden LIMIT es enviada.
        - **FILLED**: cuando una orden MARKET es ejecutada.
        - **REJECTED**: cuando la orden no cumple los requisitos del mercado (por ejemplo, un monto mayor al disponible).
+      
+   ### Endpoints Utilizados
+   - GET https://dummy-api-topaz.vercel.app/portfolio
+   - GET https://dummy-api-topaz.vercel.app/instruments
+   - GET https://dummy-api-topaz.vercel.app/search?query=DYC
+   - POST https://dummy-api-topaz.vercel.app/orders
 
 ---
 
@@ -71,4 +71,6 @@ Para comenzar a trabajar con esta aplicación en tu entorno local, sigue estos p
 
 ## Preview de la app
 
+
+https://github.com/user-attachments/assets/cae0707e-77f7-41c7-8f50-363014f46173
 
